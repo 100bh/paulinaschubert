@@ -10,6 +10,7 @@ import Index from "./pages/Index";
 import Videos from "./pages/Videos";
 import Schedule from "./pages/Schedule";
 import Partners from "./pages/Partners";
+import Contact from "./pages/Contact";
 import Links from "./pages/Links";
 import NotFound from "./pages/NotFound";
 
@@ -23,13 +24,14 @@ const App = () => (
       <BrowserRouter>
         <div className="min-h-screen bg-background flex flex-col">
           <Navbar />
-          <main className="flex-1">
+          <main>
             <AnimatePresence mode="wait">
               <Routes>
                 <Route path="/" element={<Index />} />
                 <Route path="/videos" element={<Videos />} />
                 <Route path="/schedule" element={<Schedule />} />
                 <Route path="/partners" element={<Partners />} />
+                <Route path="/contact" element={<Contact />} />
                 <Route path="/links" element={<Links />} />
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                 <Route path="*" element={<NotFound />} />

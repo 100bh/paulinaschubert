@@ -1,12 +1,18 @@
 import { motion } from "framer-motion";
 import PageTransition from "@/components/PageTransition";
-import { Sparkles, Heart, Star } from "lucide-react";
+import { Sparkles, Heart, Star, Gift, Mail } from "lucide-react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const stats = [
   { label: "Hair", value: "Blonde" },
   { label: "Eyes", value: "Gray-Blue" },
   { label: "Height", value: "178cm" },
-  { label: "Build", value: "95C" },
+  { label: "Bra Size", value: "95C" },
   { label: "Orientation", value: "Bisexual" },
 ];
 
@@ -21,13 +27,61 @@ const chapters = [
     title: "The Honest Truth",
     icon: Heart,
     content:
-      'I\'m not built for an office job. As Lisa says: "Be honest!"... Fine. I want sex, sex, and more SEX! I\'m done being the shy girl. I\'m taking everyone on this journey—every first time included.',
+      "I'm not built for an office job. As Lisa says: \"Be honest!\"... Fine. I want sex, sex, and more SEX! I'm done being the shy girl. I'm taking everyone on this journey—every first time included.",
   },
   {
     title: "The Dream",
     icon: Star,
     content:
-      "I want to launch my own underwear line for girls with my body type. I've never felt so free. I'm sitting on my bed waiting... so hurry up, okay? 😉",
+      "I want to launch my own underwear line for girls with my body type. I've never felt so free. I'm sitting on my bed waiting... so hurry up, okay? ;)",
+  },
+];
+
+const faqs = [
+  {
+    question: "My Journey into the Industry",
+    answer:
+      "Having recently entered the industry, my path has been unconventional. A background of strict upbringing and education limited my personal exploration. Now, I'm embracing the freedom to discover and share my experiences authentically, inviting my audience to join me on this journey of firsts.",
+  },
+  {
+    question: "The Motivation Behind My Work",
+    answer:
+      "I believe in the power of shared joy and the allure of exploring what was once forbidden. My work is about transforming personal discovery into a shared experience, creating something special and memorable for both myself and my audience.",
+  },
+  {
+    question: "Favorite Scenes to Film",
+    answer:
+      "The thrill of the new is what excites me most. Every scene that involves a new experience brings a unique and genuine excitement. I am committed to exploring a wide range of scenarios, and this constant novelty is what I enjoy most about filming.",
+  },
+  {
+    question: "On Favorite Positions",
+    answer:
+      "I find the cowgirl position particularly appealing due to the sense of connection it fosters. The intimacy of eye contact and the shared control create a powerful and enjoyable experience.",
+  },
+  {
+    question: "My Preparation Process",
+    answer:
+      "Authenticity is key to my preparation. I prioritize spontaneity to ensure my reactions are genuine. When collaborating with a partner, establishing a personal connection is crucial for creating a comfortable and enjoyable atmosphere. While I keep preparations minimal to maintain authenticity, a few days of abstinence can heighten the intensity of the experience.",
+  },
+  {
+    question: "Time Invested Per Video",
+    answer:
+      "The time invested in each video varies, largely depending on the complexity and spontaneity of the scene. A typical shoot can last anywhere from 30 to 60 minutes, though I'm always willing to extend it if the creative energy is flowing.",
+  },
+  {
+    question: "A Common Misstep in Bed",
+    answer:
+      "A common oversight is rushing the experience. Intimacy is built through connection, which requires time and attention. I believe extended foreplay and open communication are essential for mutual pleasure. Articulating desires and listening to your partner is the key to a fulfilling encounter.",
+  },
+  {
+    question: "Addressing Industry Prejudices",
+    answer:
+      "A significant misconception is the idea of exploitation. In reality, every performer I know participates willingly, with all activities mutually agreed upon. It's ironic that pursuing a passion is celebrated in most fields, yet when that passion is sexuality—a fundamental human experience—it often faces unwarranted judgment.",
+  },
+  {
+    question: "A Message to the Critics",
+    answer:
+      "I encourage critics to look beyond the surface and recognize the humanity in every individual, regardless of their profession. I've found that people in this industry are often incredibly open and self-aware, precisely because they are comfortable with expressing their most intimate selves. We are all human, and my profession does not define my character.",
   },
 ];
 
@@ -47,7 +101,7 @@ const Index = () => {
                 className="relative aspect-[3/4] rounded-2xl overflow-hidden bg-muted"
               >
                 <img
-                  src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=2864&auto=format&fit=crop"
+                  src="images/heroimage.jpg"
                   alt="Paulina Schubert"
                   className="w-full h-full object-cover grayscale-hover"
                 />
@@ -174,7 +228,7 @@ const Index = () => {
               className="col-span-2 md:col-span-8 md:row-span-2 relative overflow-hidden rounded-xl bg-muted aspect-[4/5] md:aspect-auto md:min-h-[500px] group"
             >
               <img
-                src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=2550&auto=format&fit=crop"
+                src="images/image1.jpg"
                 alt="Editorial"
                 className="w-full h-full object-cover grayscale-hover"
               />
@@ -203,7 +257,7 @@ const Index = () => {
               className="col-span-1 md:col-span-4 relative overflow-hidden rounded-xl bg-muted aspect-[3/4] group"
             >
               <img
-                src="https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?q=80&w=2000&auto=format&fit=crop"
+                src="images/image2.jpg"
                 alt="Lifestyle"
                 className="w-full h-full object-cover grayscale-hover"
               />
@@ -217,7 +271,7 @@ const Index = () => {
               className="col-span-1 md:col-span-4 relative overflow-hidden rounded-xl bg-muted aspect-[3/4] group"
             >
               <img
-                src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=2670&auto=format&fit=crop"
+                src="images/image3.jpg"
                 alt="Fashion"
                 className="w-full h-full object-cover grayscale-hover"
               />
@@ -231,13 +285,115 @@ const Index = () => {
               className="col-span-2 md:col-span-4 relative overflow-hidden rounded-xl bg-muted aspect-[4/3] group"
             >
               <img
-                src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=2787&auto=format&fit=crop"
+                src="images/image4.jpg"
                 alt="Portrait"
                 className="w-full h-full object-cover grayscale-hover"
               />
             </motion.div>
           </div>
         </section>
+
+        {/* FAQ Section */}
+        <section className="px-4 md:px-8 max-w-4xl mx-auto mt-16">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="font-display text-3xl md:text-4xl text-foreground mb-8 text-center">
+              Frequently Asked Questions
+            </h2>
+
+            <Accordion type="single" collapsible className="space-y-4">
+              {faqs.map((faq, index) => (
+                <motion.div
+                  key={faq.question}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                >
+                  <AccordionItem
+                    value={`item-${index}`}
+                    className="glass-nav rounded-xl px-6 border-none"
+                  >
+                    <AccordionTrigger className="font-display text-lg md:text-xl text-foreground hover:no-underline py-6 text-left">
+                      {faq.question}
+                    </AccordionTrigger>
+                    <AccordionContent className="font-body text-sm text-muted-foreground leading-relaxed pb-6">
+                      {faq.answer}
+                    </AccordionContent>
+                  </AccordionItem>
+                </motion.div>
+              ))}
+            </Accordion>
+          </motion.div>
+        </section>
+
+        {/* Wishlist Section */}
+        <section className="px-4 md:px-8 max-w-7xl mx-auto mt-16">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+            className="glass-nav rounded-xl p-8 text-center"
+          >
+            <div className="flex justify-center mb-4">
+              <Gift className="w-16 h-16 text-foreground" />
+            </div>
+            <h2 className="font-display text-3xl md:text-4xl text-foreground mb-2">
+              Paulina's wish list
+            </h2>
+            <p className="font-body text-sm text-muted-foreground mb-6">
+              Want to make me happy? Then take a look at my Amazon wish list!
+            </p>
+            <a
+              href="https://www.amazon.de/hz/wishlist/ls/2SKWZ51HSHLHA"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-primary text-primary-foreground font-bold py-3 px-8 rounded-lg hover:bg-primary/90 transition-colors"
+            >
+              View Wishlist
+            </a>
+          </motion.div>
+        </section>
+
+        {/* Newsletter Section */}
+        <section className="px-4 md:px-8 max-w-7xl mx-auto mt-16">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+            className="glass-nav rounded-xl p-8 text-center"
+          >
+            <div className="flex justify-center mb-4">
+              <Mail className="w-16 h-16 text-foreground" />
+            </div>
+            <h2 className="font-display text-3xl md:text-4xl text-foreground mb-2">
+              Stay Connected
+            </h2>
+            <p className="font-body text-sm text-muted-foreground mb-6 max-w-xl mx-auto">
+              Subscribe to my newsletter to receive the latest updates, exclusive content, and a glimpse behind the scenes. Don't miss out on what's next in my journey!
+            </p>
+            <form className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+              <input
+                type="email"
+                placeholder="Your email address"
+                className="flex-grow bg-background/50 border border-border rounded-lg px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                aria-label="Email for newsletter"
+              />
+              <button
+                type="submit"
+                className="bg-primary text-primary-foreground font-bold py-3 px-6 rounded-lg hover:bg-primary/90 transition-colors"
+              >
+                Subscribe
+              </button>
+            </form>
+          </motion.div>
+        </section>
+
       </div>
     </PageTransition>
   );

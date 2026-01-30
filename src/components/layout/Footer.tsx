@@ -7,7 +7,7 @@ const Footer = () => {
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
-      className="py-8 px-4 border-t border-border"
+      className="mt-auto py-4 px-4 border-t border-border"
     >
       <div className="max-w-4xl mx-auto text-center">
         <p className="font-body text-xs uppercase tracking-luxury text-muted-foreground">
