@@ -11,7 +11,7 @@ import Videos from "./pages/Videos";
 import Schedule from "./pages/Schedule";
 import Partners from "./pages/Partners";
 import Contact from "./pages/Contact";
-import Links from "./pages/Links";
+import Links from "./pages/links";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
